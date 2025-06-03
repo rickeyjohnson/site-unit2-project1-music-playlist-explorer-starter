@@ -8,10 +8,29 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto Mono', monospace;
+    box-sizing: border-box;
 }
 
 header {
-    background-color: rgb(222, 222, 222);
+    background-color: rgb(228, 228, 228);
     padding: 5px 30px;
-    border-bottom: 2px solid darkgray;
+    border-bottom: 2px solid rgb(128, 128, 128);
 }
+
+.playlist-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.playlist-card-container {
+    border: 2px solid rgb(128, 128, 128);
+    width: 200px;
+}
+
+.playlist-card-information {
+    padding: 0px 0px 5px 10px;
+}
+

@@ -4,3 +4,13 @@ body {
     padding: 0;
     background-color: #f8f8f8;
 }
+
+header {
+    background-color: lightgray;
+    padding-left: 30px;
+    border: 2px solid darkgray;
+}
+
+h1 {
+    color: rgb(88, 88, 88);
+}

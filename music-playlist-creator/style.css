@@ -43,8 +43,13 @@ footer {
     padding: 20px;
 }
 
+.playlist-card-container img {
+    width: 200px;
+}
+
 .playlist-card-container:hover {
-    background-color: darkred;
+    background-color: rgb(36, 36, 36);
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 

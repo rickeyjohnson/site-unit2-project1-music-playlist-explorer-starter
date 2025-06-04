@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
+:root {
+    --classicgray: rgb(228, 228, 228);
+    --ourwhite: #f8f8f8;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: var(--classicgray);
     display: flex;
     flex-direction: column;
     font-family: 'Roboto Mono', monospace;
@@ -12,9 +17,18 @@ body {
 }
 
 header {
-    background-color: rgb(228, 228, 228);
     padding: 5px 30px;
     border-bottom: 2px solid rgb(128, 128, 128);
+}
+
+main {
+    background-color: var(--ourwhite);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid rgb(128, 128, 128);
 }
 
 .playlist-cards {
@@ -23,6 +37,10 @@ header {
     gap: 30px;
     justify-content: center;
     padding: 20px;
+}
+
+.playlist-card-container:hover {
+    background-color: darkred;
 }
 
 .playlist-card-container {
@@ -35,11 +53,12 @@ header {
 }
 
 .modal-overlay {
-    background-color: aliceblue;
-    padding: 30px;
-    border-radius: 50px;
+    background-color: black;
+    padding: 100px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 .modal-content {
@@ -47,6 +66,11 @@ header {
     flex-direction: column;
     gap: 20px;
     width: 70%;
+    background-color: aliceblue;
+    padding: 40px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .modal-header {
@@ -97,6 +121,8 @@ header {
 .modal-song img {
     width: 100px;
     height: 100px;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .album-runtime {

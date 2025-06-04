@@ -35,7 +35,7 @@ footer {
     border-top: 2px solid rgb(128, 128, 128);
 }
 
-.playlist-cards {
+#playlist-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -60,6 +60,10 @@ footer {
 
 .playlist-card-information {
     padding: 0px 0px 5px 10px;
+}
+
+.playlist-card-heart-icon:hover {
+    color: red;
 }
 
 .modal-overlay {

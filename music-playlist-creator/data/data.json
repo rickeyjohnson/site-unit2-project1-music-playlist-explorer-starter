@@ -1,3 +1,106 @@
 [
-    {}
+  {
+    "playlistID": 1,
+    "playlist_name": "Summer Vibes",
+    "playlist_author": "John Doe",
+    "playlist_art": "https://example.com/summer-vibes-art.jpg",
+    "songs": [
+      {
+        "songID": 1,
+        "song_title": "Happy",
+        "song_artist": "Pharrell Williams",
+        "song_duration": "3:53"
+      },
+      {
+        "songID": 2,
+        "song_title": "Can't Stop the Feeling!",
+        "song_artist": "Justin Timberlake",
+        "song_duration": "3:56"
+      },
+      {
+        "songID": 3,
+        "song_title": "Uptown Funk",
+        "song_artist": "Mark Ronson ft. Bruno Mars",
+        "song_duration": "4:38"
+      }
+    ]
+  },
+  {
+    "playlistID": 2,
+    "playlist_name": "Workout Mix",
+    "playlist_author": "Jane Smith",
+    "playlist_art": "https://example.com/workout-mix-art.jpg",
+    "songs": [
+      {
+        "songID": 4,
+        "song_title": "Eye of the Tiger",
+        "song_artist": "Survivor",
+        "song_duration": "3:59"
+      },
+      {
+        "songID": 5,
+        "song_title": "Lose Yourself",
+        "song_artist": "Eminem",
+        "song_duration": "5:26"
+      },
+      {
+        "songID": 6,
+        "song_title": "We Will Rock You",
+        "song_artist": "Queen",
+        "song_duration": "2:28"
+      }
+    ]
+  },
+  {
+    "playlistID": 3,
+    "playlist_name": "Relaxing Music",
+    "playlist_author": "Bob Johnson",
+    "playlist_art": "https://example.com/relaxing-music-art.jpg",
+    "songs": [
+      {
+        "songID": 7,
+        "song_title": "Weightless",
+        "song_artist": "Marconi Union",
+        "song_duration": "8:09"
+      },
+      {
+        "songID": 8,
+        "song_title": "Clair de Lune",
+        "song_artist": "Claude Debussy",
+        "song_duration": "5:00"
+      },
+      {
+        "songID": 9,
+        "song_title": "River Flows in You",
+        "song_artist": "Yiruma",
+        "song_duration": "3:38"
+      }
+    ]
+  },
+  {
+    "playlistID": 4,
+    "playlist_name": "Retro Hits",
+    "playlist_author": "Alice Brown",
+    "playlist_art": "https://example.com/retro-hits-art.jpg",
+    "songs": [
+      {
+        "songID": 10,
+        "song_title": "I Want It That Way",
+        "song_artist": "Backstreet Boys",
+        "song_duration": "3:33"
+      },
+      {
+        "songID": 11,
+        "song_title": "Bye Bye Bye",
+        "song_artist": "NSYNC",
+        "song_duration": "3:20"
+      },
+      {
+        "songID": 12,
+        "song_title": "Waterfalls",
+        "song_artist": "TLC",
+        "song_duration": "4:39"
+      }
+    ]
+  }
 ]

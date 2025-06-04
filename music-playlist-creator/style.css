@@ -34,3 +34,65 @@ header {
     padding: 0px 0px 5px 10px;
 }
 
+.modal-overlay {
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 50px;
+    border: 7px solid pink;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 7px solid red;
+    width: 70%;
+}
+
+.modal-header {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-header img {
+    width: 150px;
+}
+
+.modal-header-title h2 {
+    font-size: 2rem;
+}
+
+.modal-header-title h3 {
+    font-size: 1.2rem;
+}
+
+.modal-songs-list {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid orange;
+    width: 100%;
+}
+
+.modal-song {
+    display: flex;
+    gap: 30px;
+    margin: 0px;
+    border: 3px solid green;
+}
+
+.modal-song p {
+    border: 8px solid pink;
+    margin: 0px;
+}
+
+.modal-song img {
+    width: 50px;
+}
+
+.album-runtime {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

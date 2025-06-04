@@ -38,7 +38,6 @@ header {
     background-color: aliceblue;
     padding: 30px;
     border-radius: 50px;
-    border: 7px solid pink;
     display: flex;
     justify-content: center;
 }
@@ -47,7 +46,6 @@ header {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 7px solid red;
     width: 70%;
 }
 
@@ -71,7 +69,7 @@ header {
 .modal-songs-list {
     display: flex;
     flex-direction: column;
-    border: 3px solid orange;
+    gap: 20px;
     width: 100%;
 }
 
@@ -79,20 +77,29 @@ header {
     display: flex;
     gap: 30px;
     margin: 0px;
-    border: 3px solid green;
+    align-items: center;
+    border: 2px solid rgb(128, 128, 128);
+    padding: 10px;
+}
+
+.modal-song-content {
+    width: 100%;
 }
 
 .modal-song p {
-    border: 8px solid pink;
-    margin: 0px;
+    margin: 0;
+}
+
+.modal-song h4 {
+    margin: 0;
 }
 
 .modal-song img {
-    width: 50px;
+    width: 100px;
+    height: 100px;
 }
 
 .album-runtime {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: end;
+    width: 100%;
 }

@@ -42,6 +42,7 @@ function openModal(playlist) {
 }
 
 function closeModal() {
+    clearModal()
     modalOverlay.className += 'hidden'
 }
 
@@ -75,6 +76,11 @@ function createPlaylistElement(playlist) {
 
     playlistCards.appendChild(playlistCard)
     return playlistCards
+}
+
+function clearModal() {
+    const modalSongsContainer = document.getElementsByClassName('modal-songs-container')[0]
+    modalSongsContainer.innerHTML = ''
 }
 
 function populateModal(playlist) {

@@ -109,7 +109,7 @@ footer {
     font-size: 1.2rem;
 }
 
-.modal-songs-list {
+.modal-songs-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -122,7 +122,8 @@ footer {
     gap: 30px;
     margin: 0px;
     align-items: center;
-    border: 2px solid rgb(128, 128, 128);
+    border: 2px solid rgb(210, 218, 225);
+    border-radius: 10px;
     padding: 10px;
 }
 

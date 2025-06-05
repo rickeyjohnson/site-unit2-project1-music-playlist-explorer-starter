@@ -175,4 +175,13 @@ function populateModal(playlist) {
     })
 }
 
+// function selectNavigationLink() {
+//     const featureLink = document.getElementById('feature-link')
+//     const homeLink = document.getElementById('home-link')
+
+//     featureLink.addEventListener('click', () => {
+//         console.log(featureLink.classList)
+//     })
+// }
+
 loadPlaylist()

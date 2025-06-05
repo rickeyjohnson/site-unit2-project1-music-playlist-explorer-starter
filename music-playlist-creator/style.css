@@ -11,18 +11,27 @@
     --ourwhite: #f8f8f8;
 }
 
+html {
+    height: 100vh;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--classicgray);
+    background-color: var(--ourwhite);
     font-family: 'Roboto Mono', monospace;
     box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 header {
     padding: 5px 30px;
     border-bottom: 2px solid rgb(128, 128, 128);
+    background-color: var(--classicgray);
 }
 
 main {
@@ -33,6 +42,8 @@ footer {
     text-align: center;
     padding: 20px;
     border-top: 2px solid rgb(128, 128, 128);
+    margin-top: auto;
+    background-color: var(--classicgray);
 }
 
 #playlist-cards {

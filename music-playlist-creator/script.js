@@ -22,6 +22,12 @@ function loadPlaylist() {
                     openModal(playlists[element.id - 1])
                 })
             })
+
+            modalOverlay.addEventListener('click', (event) => {
+                if (event.target.className.trim() === 'modal-overlay') {
+                    closeModal()
+                }
+            })
             
         })
         .catch(error => {

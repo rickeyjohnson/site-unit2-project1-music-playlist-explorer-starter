@@ -1,5 +1,6 @@
 const playlistCards = document.getElementById('playlist-cards')
 const modal = document.getElementsByClassName('modal-content')
+const modalOverlay = document.getElementsByClassName('modal-overlay')[0]
 
 function loadPlaylist() {
     fetch("./data/data.json")
@@ -14,10 +15,28 @@ function loadPlaylist() {
             playlists.forEach(playlist => {
                 createPlaylistElement(playlist)
             });
+
+            const elements = document.querySelectorAll('.playlist-card-container')
+            elements.forEach(element => {
+                element.addEventListener('click', () => {
+                    openModal(playlists[element.id - 1])
+                })
+            })
+            
         })
         .catch(error => {
             console.error('There was a problem:', error)
         })
+}
+
+function openModal(playlist) {
+    populateModal(playlist)
+
+    modalOverlay.className = modalOverlay.className.replace('hidden', '')
+}
+
+function closeModal() {
+    modalOverlay.className += 'hidden'
 }
 
 function createPlaylistElement(playlist) {
@@ -46,8 +65,10 @@ function createPlaylistElement(playlist) {
 
     playlistCard.appendChild(playlistCardImg)
     playlistCard.appendChild(playlistCardInformation)
+    playlistCard.id = playlist.playlistID
 
     playlistCards.appendChild(playlistCard)
+    return playlistCards
 }
 
 function populateModal(playlist) {
@@ -64,7 +85,7 @@ function populateModal(playlist) {
 
     let modalSongsContainer = document.getElementsByClassName('modal-songs-container')[0]
 
-    songs.forEach((song) => {
+    songs.forEach(song => {
         let modalSong = document.createElement('div')
         let modalSongImg = document.createElement('img')
         let modalSongContent = document.createElement('div')
@@ -90,75 +111,6 @@ function populateModal(playlist) {
 
         modalSongsContainer.appendChild(modalSong)
     })
-
-    // let modalHeader = document.createElement('modal-header')
-    // let modalHeaderTitle = document.createElement('modal-header-title')
-    // let modalSongContainer = document.createElement('modal-songs-container')
-
-    // let modalAlbumTitle = document.createElement('h2')
-    // let modalAlbumName = document.createElement('h3')
-    // let modalSong = document.createElement('div')
-    // let modalSongImg = document.createElement('img')
-    // let modalSongContent = document.createElement('div')
-    // let modalSongTitle = document.createElement('h4')
-    // let modalSongArtist = document.createElement('p')
-    // let modalSongRuntime = document.createElement('p')
-    // // images will have to be implemented
-
-    // modalAlbumTitle.textContent = playlist.playlist_name
-    // modalAlbumName.textContent = playlist.playlist_author
-
-    // modalHeaderTitle.appendChild(modalAlbumTitle)
-    // modalHeaderTitle.appendChild(modalAlbumName)
-    // modalHeader.appendChild(modalHeaderTitle)
-
-    // modal.appendChild(modalHeader)
-
-    // songs.forEach(song => {
-    //     modalSong.className = 'modal-song'
-    //     modalSongImg.setAttribute('src', './assets/img/song.png')
-    //     modalSongImg.setAttribute('alt', 'Song Image')
-    //     modalSongContent.className = 'modal-song-content'
-    //     modalSongTitle.textContent = song.song_title
-    //     modalSongArtist.textContent = song.song_artist
-    //     modalSongRuntime = song.song_duration
-
-    //     modalSongContent.appendChild(modalSongTitle)
-    //     modalSongContent.appendChild(modalSongArtist)
-    //     modalSong.appendChild(modalSongImg)
-    //     modalSong.appendChild(modalSongContent)
-    //     modalSong.appendChild(modalSongRuntime)
-    //     modalSongContainer.appendChild(modalSong)
-    // })
-
-    // modal.appendChild(modalSongContainer)
-
 }
 
 loadPlaylist()
-populateModal({
-    "playlistID": 1,
-    "playlist_name": "Summer Vibes",
-    "playlist_author": "John Doe",
-    "playlist_art": "https://example.com/summer-vibes-art.jpg",
-    "songs": [
-      {
-        "songID": 1,
-        "song_title": "Happy",
-        "song_artist": "Pharrell Williams",
-        "song_duration": "3:53"
-      },
-      {
-        "songID": 2,
-        "song_title": "Can't Stop the Feeling!",
-        "song_artist": "Justin Timberlake",
-        "song_duration": "3:56"
-      },
-      {
-        "songID": 3,
-        "song_title": "Uptown Funk",
-        "song_artist": "Mark Ronson ft. Bruno Mars",
-        "song_duration": "4:38"
-      }
-    ]
-  })

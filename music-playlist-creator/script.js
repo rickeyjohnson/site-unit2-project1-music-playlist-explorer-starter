@@ -1,7 +1,14 @@
-const playlistCards = document.getElementById('playlist-cards')
+const main = document.querySelector('main')
+
 const modal = document.getElementsByClassName('modal-content')
 const modalOverlay = document.getElementsByClassName('modal-overlay')[0]
 const shuffleBtn = document.getElementById('shuffle-btn')
+
+const homeLink = document.getElementById('home-link')
+const featureLink = document.getElementById('feature-link')
+
+const playlistCards = document.createElement('playlist-cards')
+playlistCards.id = 'playlist-cards'
 
 function loadPlaylist() {
     fetch("./data/data.json")
@@ -16,6 +23,8 @@ function loadPlaylist() {
             playlists.forEach(playlist => {
                 createPlaylistElement(playlist)
             });
+
+            main.appendChild(playlistCards)
 
             const cards = document.querySelectorAll('.playlist-card-container')
             let selectedPlaylist;
@@ -193,4 +202,137 @@ function getRandomColor() {
     return color;
 }
 
-loadPlaylist()
+function loadFeaturePage(playlist) {
+    const songs = playlist.songs
+
+    const featureHeader = document.createElement('div')
+    featureHeader.id = 'feature-playlist-header'
+
+    const featureTitle = document.createElement('div')
+    featureTitle.id = 'feature-playlist-title'
+
+    const playlistImage = document.createElement('img')
+    const name = document.createElement('h1')
+    const author = document.createElement('h2')
+
+    playlistImage.src = './assets/img/song.png'
+    playlistImage.alt = 'Playlist image'
+    name.textContent = playlist.playlist_name
+    author.textContent = playlist.playlist_author
+
+    featureTitle.appendChild(name)
+    featureTitle.appendChild(author)
+
+    featureHeader.appendChild(playlistImage)
+    featureHeader.appendChild(featureTitle)
+    main.appendChild(featureHeader)
+
+    const featureSongsContainer = document.createElement('div')
+    featureSongsContainer.id = 'feature-songs-container'
+
+    songs.forEach(song => {
+        const featureSong = document.createElement('div')
+        featureSong.className = 'feature-song'
+
+        const featureSongImage = document.createElement('img')
+        featureSongImage.src = './assets/img/playlist.png'
+        featureSongImage.alt = 'Song image'
+
+        const featureSongTitle = document.createElement('div')
+        featureSongTitle.className = 'feature-song-title'
+
+        const songTitle = document.createElement('h3')
+        const songArtist = document.createElement('p')
+        songTitle.textContent = song.song_title
+        songArtist.textContent = song.song_artist
+
+        const featureSongRuntime = document.createElement('p')
+        featureSongRuntime.className = 'feature-song-runtime'
+        featureSongRuntime.textContent = song.song_duration
+
+        featureSongTitle.appendChild(songTitle)
+        featureSongTitle.appendChild(songArtist)
+        featureSong.appendChild(featureSongImage)
+        featureSong.appendChild(featureSongTitle)
+        featureSong.appendChild(featureSongRuntime)
+
+        main.appendChild(featureSong)
+    })
+}
+
+homeLink.addEventListener('click', () => {
+    console.log('click!')
+})
+
+featureLink.addEventListener('click', () => {
+    loadFeaturePage({
+    "playlistID": 10,
+    "playlist_name": "Jazz Standards",
+    "playlist_author": "Lisa Nguyen",
+    "playlist_art": "https://example.com/jazz-standards-art.jpg",
+    "songs": [
+      {
+        "songID": 43,
+        "song_title": "My Funny Valentine",
+        "song_artist": "Chet Baker",
+        "song_duration": "2:17"
+      },
+      {
+        "songID": 44,
+        "song_title": "Fly Me to the Moon",
+        "song_artist": "Frank Sinatra",
+        "song_duration": "2:30"
+      },
+      {
+        "songID": 45,
+        "song_title": "Summertime",
+        "song_artist": "Louis Armstrong",
+        "song_duration": "3:23"
+      },
+      {
+        "songID": 46,
+        "song_title": "Moon River",
+        "song_artist": "Henry Mancini",
+        "song_duration": "2:41"
+      },
+      {
+        "songID": 47,
+        "song_title": "The Way You Look Tonight",
+        "song_artist": "Frank Sinatra",
+        "song_duration": "3:22"
+      },
+      {
+        "songID": 48,
+        "song_title": "Night and Day",
+        "song_artist": "Billie Holiday",
+        "song_duration": "3:04"
+      },
+      {
+        "songID": 49,
+        "song_title": "I'll Be Seeing You",
+        "song_artist": "Billie Holiday",
+        "song_duration": "3:27"
+      },
+      {
+        "songID": 50,
+        "song_title": "My Heart Belongs to Daddy",
+        "song_artist": "Marilyn Monroe",
+        "song_duration": "2:17"
+      },
+      {
+        "songID": 51,
+        "song_title": "Feelin' Good",
+        "song_artist": "Nina Simone",
+        "song_duration": "2:53"
+      },
+      {
+        "songID": 52,
+        "song_title": "Sway",
+        "song_artist": "Dean Martin",
+        "song_duration": "2:42"
+      }
+    ]
+  })
+})
+
+// loadPlaylist()

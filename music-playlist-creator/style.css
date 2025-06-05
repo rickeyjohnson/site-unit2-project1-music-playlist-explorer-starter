@@ -234,3 +234,62 @@ footer {
     border: 3px solid white;
     cursor: pointer;
 }
+
+/* feature */
+
+#feature-playlist-header {
+    display: flex;
+    gap: 75px;
+    padding: 50px;
+    background-color: pink;
+}
+
+#feature-playlist-header img{
+    width: 35vh;
+}
+
+#feature-playlist-title {
+    align-self: flex-end;
+}
+
+#feature-playlist-title h1 {
+    font-size: 5rem;
+    margin: 10px 0px;
+}
+
+#feature-playlist-title h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+#feature-songs-cotainer {
+
+}
+
+.feature-song {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.feature-song img {
+    width: 10vh;
+}
+
+.feature-song-runtime {
+    width: 50%;
+    text-align: right;
+}
+
+.feature-song-title {
+    align-self: center;
+}
+
+.feature-song-title h3 {
+    margin: 10px 0px;
+}
+
+.feature-song-title p {
+    margin: 0;
+}

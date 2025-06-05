@@ -1,6 +1,7 @@
 const playlistCards = document.getElementById('playlist-cards')
 const modal = document.getElementsByClassName('modal-content')
 const modalOverlay = document.getElementsByClassName('modal-overlay')[0]
+const shuffleBtn = document.getElementById('shuffle-btn')
 
 function loadPlaylist() {
     fetch("./data/data.json")
@@ -17,14 +18,19 @@ function loadPlaylist() {
             });
 
             const cards = document.querySelectorAll('.playlist-card-container')
+            let selectedPlaylist;
+
             cards.forEach(card => {
                 card.addEventListener('click', (event) => {
+                    selectedPlaylist = card;
+
                     if (event.target.className.includes('playlist-card-heart-icon')) {
-                        increaseLikeCount(card)
+                        increaseLikeCount(selectedPlaylist)
                     } else {
-                        openModal(playlists[card.id - 1])
+                        openModal(playlists[selectedPlaylist.id - 1])
                     }
                 })
+
             })
 
             modalOverlay.addEventListener('click', (event) => {
@@ -32,11 +38,31 @@ function loadPlaylist() {
                     closeModal()
                 }
             })
+
+            shuffleBtn.addEventListener('click', () => {
+                shuffleSongs(playlists[selectedPlaylist.id - 1])
+                closeModal()
+                openModal(playlists[selectedPlaylist.id - 1])
+            })
             
         })
         .catch(error => {
             console.error('There was a problem:', error)
         })
+}
+
+function shuffleSongs(playlist) {
+    let songs = playlist.songs
+    let i = songs.length
+    let j
+    let temp
+
+    while (--i > 0) {
+        j = Math.floor(Math.random() * (i + 1))
+        temp = songs[j]
+        songs[j] = songs[i]
+        songs[i] = temp
+    }
 }
 
 function increaseLikeCount(card) {
@@ -67,13 +93,13 @@ function closeModal() {
 }
 
 function createPlaylistElement(playlist) {
-    let playlistCard = document.createElement('div')
-    let playlistCardImg = document.createElement('img')
-    let playlistCardInformation = document.createElement('div')
-    let playlistCardName = document.createElement('h3')
-    let playlistCardArtist = document.createElement('p')
-    let playlistCardLikes = document.createElement('span')
-    let playlistCardHeart = document.createElement('span')
+    const playlistCard = document.createElement('div')
+    const playlistCardImg = document.createElement('img')
+    const playlistCardInformation = document.createElement('div')
+    const playlistCardName = document.createElement('h3')
+    const playlistCardArtist = document.createElement('p')
+    const playlistCardLikes = document.createElement('span')
+    const playlistCardHeart = document.createElement('span')
 
     playlistCard.className ='playlist-card-container'
     playlistCardImg.setAttribute('src', './assets/img/playlist.png')
@@ -119,15 +145,15 @@ function populateModal(playlist) {
     modalPlaylistTitle.textContent = playlist.playlist_name
     modalPlaylistCreator.textContent = playlist.playlist_author
 
-    let modalSongsContainer = document.getElementsByClassName('modal-songs-container')[0]
+    const modalSongsContainer = document.getElementsByClassName('modal-songs-container')[0]
 
     songs.forEach(song => {
-        let modalSong = document.createElement('div')
-        let modalSongImg = document.createElement('img')
-        let modalSongContent = document.createElement('div')
-        let modalSongTitle = document.createElement('h4')
-        let modalSongArtist = document.createElement('p')
-        let modalSongRuntime = document.createElement('p')
+        const modalSong = document.createElement('div')
+        const modalSongImg = document.createElement('img')
+        const modalSongContent = document.createElement('div')
+        const modalSongTitle = document.createElement('h4')
+        const modalSongArtist = document.createElement('p')
+        const modalSongRuntime = document.createElement('p')
 
         modalSong.className = 'modal-song'
         modalSongContent.className = 'modal-song-content'

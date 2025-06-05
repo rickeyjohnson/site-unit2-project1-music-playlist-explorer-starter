@@ -9,6 +9,7 @@
 :root {
     --classicgray: rgb(228, 228, 228);
     --ourwhite: #f8f8f8;
+    --darkgray: rgb(36, 36, 36);
 }
 
 html {
@@ -59,7 +60,7 @@ footer {
 }
 
 .playlist-card-container:hover {
-    background-color: rgb(36, 36, 36);
+    background-color: var(--darkgray);
     color: rgb(255, 255, 255);
     cursor: pointer;
 }
@@ -95,7 +96,7 @@ footer {
     gap: 20px;
     width: 70%;
     height: 700px;
-    background-color: rgb(36, 36, 36);
+    background-color: var(--darkgray);
     color: white;
     padding: 40px;
     border-radius: 50px;
@@ -109,11 +110,14 @@ footer {
 
 .modal-header {
     display: flex;
-    gap: 15px;
 }
 
 .modal-header img {
     width: 150px;
+}
+
+.modal-header-title {
+    margin-left: 50px;
 }
 
 .modal-header-title h2 {
@@ -145,7 +149,7 @@ footer {
 .modal-song:hover {
     cursor: pointer;
     background-color: white;
-    color: rgb(36, 36, 36);
+    color: var(--darkgray);
 }
 
 .modal-song-content {
@@ -178,4 +182,21 @@ footer {
 
 .liked {
     color: red;
+}
+
+#shuffle-btn {
+    font-family: 'Roboto Mono', monospace;
+    background-color: white;
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+#shuffle-btn:hover {
+    background-color: var(--darkgray);
+    color: white;
+    border: 3px solid white;
+    cursor: pointer;
 }

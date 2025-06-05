@@ -7,7 +7,7 @@ const shuffleBtn = document.getElementById('shuffle-btn')
 const homeLink = document.getElementById('home-link')
 const featureLink = document.getElementById('feature-link')
 
-const playlistCards = document.createElement('playlist-cards')
+const playlistCards = document.createElement('div')
 playlistCards.id = 'playlist-cards'
 
 function loadPlaylist() {
@@ -20,44 +20,75 @@ function loadPlaylist() {
             return response.json()
         })
         .then(playlists => {
-            playlists.forEach(playlist => {
-                createPlaylistElement(playlist)
-            });
 
-            main.appendChild(playlistCards)
+            const loadPlaylistScreen = () => {
+                clearScreen()
 
-            const cards = document.querySelectorAll('.playlist-card-container')
-            let selectedPlaylist;
+                playlists.forEach(playlist => {
+                    createPlaylistElement(playlist)
+                });
 
-            cards.forEach(card => {
-                card.addEventListener('click', (event) => {
-                    selectedPlaylist = card;
+                main.appendChild(playlistCards)
 
-                    if (event.target.className.includes('playlist-card-heart-icon')) {
-                        increaseLikeCount(selectedPlaylist)
-                    } else {
-                        openModal(playlists[selectedPlaylist.id - 1])
+                const cards = document.querySelectorAll('.playlist-card-container')
+                let selectedPlaylist;
+
+                cards.forEach(card => {
+                    card.addEventListener('click', (event) => {
+                        selectedPlaylist = card;
+
+                        if (event.target.className.includes('playlist-card-heart-icon')) {
+                            increaseLikeCount(selectedPlaylist)
+                        } else {
+                            openModal(playlists[selectedPlaylist.id - 1])
+                        }
+                    })
+
+                })
+
+                modalOverlay.addEventListener('click', (event) => {
+                    if (event.target.className.trim() === 'modal-overlay') {
+                        closeModal()
                     }
                 })
 
-            })
-
-            modalOverlay.addEventListener('click', (event) => {
-                if (event.target.className.trim() === 'modal-overlay') {
+                shuffleBtn.addEventListener('click', () => {
+                    shuffleSongs(playlists[selectedPlaylist.id - 1])
                     closeModal()
-                }
+                    openModal(playlists[selectedPlaylist.id - 1])
+                })
+            }
+
+            // const cards = document.querySelectorAll('.playlist-card-container')
+            // let selectedPlaylist;
+
+            // cards.forEach(card => {
+            //     card.addEventListener('click', (event) => {
+            //         selectedPlaylist = card;
+
+            //         if (event.target.className.includes('playlist-card-heart-icon')) {
+            //             increaseLikeCount(selectedPlaylist)
+            //         } else {
+            //             openModal(playlists[selectedPlaylist.id - 1])
+            //         }
+            //     })
+
+            // })
+
+            homeLink.addEventListener('click', () => {
+                loadPlaylistScreen()
             })
 
-            shuffleBtn.addEventListener('click', () => {
-                shuffleSongs(playlists[selectedPlaylist.id - 1])
-                closeModal()
-                openModal(playlists[selectedPlaylist.id - 1])
+            featureLink.addEventListener('click', () => {
+                loadFeaturePage(playlists[Math.floor(Math.random() * playlists.length)])
             })
+
+            loadPlaylistScreen()
             
         })
         .catch(error => {
             console.error('There was a problem:', error)
-        })
+        }) 
 }
 
 function shuffleSongs(playlist) {
@@ -203,6 +234,7 @@ function getRandomColor() {
 }
 
 function loadFeaturePage(playlist) {
+    clearScreen()
     const songs = playlist.songs
 
     const featureHeader = document.createElement('div')
@@ -260,9 +292,10 @@ function loadFeaturePage(playlist) {
     })
 }
 
-homeLink.addEventListener('click', () => {
-    console.log('click!')
-})
+function clearScreen() {
+    playlistCards.innerHTML = ''
+    main.innerHTML = ''
+}
 
 featureLink.addEventListener('click', () => {
     loadFeaturePage({
@@ -335,4 +368,4 @@ featureLink.addEventListener('click', () => {
   })
 })
 
-// loadPlaylist()
+loadPlaylist()

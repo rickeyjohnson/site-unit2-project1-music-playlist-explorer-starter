@@ -95,7 +95,7 @@ footer {
     gap: 20px;
     width: 70%;
     height: 700px;
-    background-color: rgb(56, 56, 56);
+    background-color: rgb(36, 36, 36);
     color: white;
     padding: 40px;
     border-radius: 50px;
@@ -137,9 +137,15 @@ footer {
     gap: 30px;
     margin: 0px;
     align-items: center;
-    border: 2px solid rgb(210, 218, 225);
+    border: 2px solid rgb(215, 231, 246);
     border-radius: 10px;
     padding: 10px;
+}
+
+.modal-song:hover {
+    cursor: pointer;
+    background-color: white;
+    color: rgb(36, 36, 36);
 }
 
 .modal-song-content {
@@ -168,4 +174,8 @@ footer {
 
 .hidden {
     display: none;
+}
+
+.liked {
+    color: red;
 }

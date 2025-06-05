@@ -16,10 +16,14 @@ function loadPlaylist() {
                 createPlaylistElement(playlist)
             });
 
-            const elements = document.querySelectorAll('.playlist-card-container')
-            elements.forEach(element => {
-                element.addEventListener('click', () => {
-                    openModal(playlists[element.id - 1])
+            const cards = document.querySelectorAll('.playlist-card-container')
+            cards.forEach(card => {
+                card.addEventListener('click', (event) => {
+                    if (event.target.className.includes('playlist-card-heart-icon')) {
+                        increaseLikeCount(card)
+                    } else {
+                        openModal(playlists[card.id - 1])
+                    }
                 })
             })
 
@@ -33,6 +37,22 @@ function loadPlaylist() {
         .catch(error => {
             console.error('There was a problem:', error)
         })
+}
+
+function increaseLikeCount(card) {
+    const likeCount = document.getElementById('playlist-' + card.id + '-like-count')
+    const heartIcon = document.getElementById('playlist-' + card.id + '-card-heart')
+    amount = 1
+
+    if (heartIcon.className.includes('liked')) { 
+        heartIcon.className = heartIcon.className.replace('liked', '')
+        amount *= -1
+    } else {
+        heartIcon.className += ' liked'
+    }
+
+    console.log(heartIcon.className)
+    likeCount.textContent = Number(likeCount.textContent) + amount
 }
 
 function openModal(playlist) {
@@ -62,7 +82,7 @@ function createPlaylistElement(playlist) {
     playlistCardHeart.className = 'playlist-card-heart-icon'
     playlistCardName.textContent = playlist.playlist_name
     playlistCardArtist.textContent = playlist.playlist_author
-    playlistCardLikes.textContent = 0 // to be implemented later
+    playlistCardLikes.textContent = Math.floor(Math.random() * 10)
     playlistCardHeart.textContent = '♡ '
 
     playlistCardInformation.appendChild(playlistCardName)
@@ -73,6 +93,10 @@ function createPlaylistElement(playlist) {
     playlistCard.appendChild(playlistCardImg)
     playlistCard.appendChild(playlistCardInformation)
     playlistCard.id = playlist.playlistID
+    playlistCardHeart.className = 'playlist-card-heart-icon'
+    playlistCardLikes.className = 'playlist-like-count'
+    playlistCardHeart.id = 'playlist-' + playlist.playlistID + '-card-heart'
+    playlistCardLikes.id = 'playlist-' + playlist.playlistID + '-like-count'
 
     playlistCards.appendChild(playlistCard)
     return playlistCards

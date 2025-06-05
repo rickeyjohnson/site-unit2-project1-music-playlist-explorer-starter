@@ -87,7 +87,7 @@ footer {
     border-radius: 50px;
     display: flex;
     justify-content: center;
-    margin: auto;
+    margin: 10% auto;
     animation-name: appear;
     animation-duration: 0.3s;
 }
@@ -114,7 +114,7 @@ footer {
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .modal-song {

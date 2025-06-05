@@ -62,6 +62,35 @@ function populateModal(playlist) {
     modalPlaylistTitle.textContent = playlist.playlist_name
     modalPlaylistCreator.textContent = playlist.playlist_author
 
+    let modalSongsContainer = document.getElementsByClassName('modal-songs-container')[0]
+
+    songs.forEach((song) => {
+        let modalSong = document.createElement('div')
+        let modalSongImg = document.createElement('img')
+        let modalSongContent = document.createElement('div')
+        let modalSongTitle = document.createElement('h4')
+        let modalSongArtist = document.createElement('p')
+        let modalSongRuntime = document.createElement('p')
+
+        modalSong.className = 'modal-song'
+        modalSongContent.className = 'modal-song-content'
+        modalSongRuntime.className = 'album-runtime'
+        modalSongImg.setAttribute('src', './assets/img/song.png')
+        modalSongImg.setAttribute('alt', 'Song image')
+        modalSongTitle.textContent = song.song_title
+        modalSongArtist.textContent = song.song_artist
+        modalSongRuntime.textContent = song.song_duration
+
+        modalSongContent.appendChild(modalSongTitle)
+        modalSongContent.appendChild(modalSongArtist)
+
+        modalSong.appendChild(modalSongImg)
+        modalSong.appendChild(modalSongContent)
+        modalSong.appendChild(modalSongRuntime)
+
+        modalSongsContainer.appendChild(modalSong)
+    })
+
     // let modalHeader = document.createElement('modal-header')
     // let modalHeaderTitle = document.createElement('modal-header-title')
     // let modalSongContainer = document.createElement('modal-songs-container')

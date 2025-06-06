@@ -59,28 +59,16 @@ function loadPlaylist() {
                 })
             }
 
-            // const cards = document.querySelectorAll('.playlist-card-container')
-            // let selectedPlaylist;
-
-            // cards.forEach(card => {
-            //     card.addEventListener('click', (event) => {
-            //         selectedPlaylist = card;
-
-            //         if (event.target.className.includes('playlist-card-heart-icon')) {
-            //             increaseLikeCount(selectedPlaylist)
-            //         } else {
-            //             openModal(playlists[selectedPlaylist.id - 1])
-            //         }
-            //     })
-
-            // })
-
             homeLink.addEventListener('click', () => {
                 loadPlaylistScreen()
+                homeLink.classList.add('active')
+                featureLink.classList.remove('active')
             })
 
             featureLink.addEventListener('click', () => {
                 loadFeaturePage(playlists[Math.floor(Math.random() * playlists.length)])
+                homeLink.classList.remove('active')
+                featureLink.classList.add('active')
             })
 
             loadPlaylistScreen()
@@ -142,7 +130,7 @@ function createPlaylistElement(playlist) {
     const playlistCardHeart = document.createElement('span')
 
     playlistCard.className ='playlist-card-container'
-    playlistCardImg.setAttribute('src', './assets/img/playlist.png')
+    playlistCardImg.setAttribute('src', playlist.playlist_art)
     playlistCardImg.setAttribute('alt', 'playlist image')
     playlistCardInformation.className = 'playlist-card-information'
     playlistCardHeart.className = 'playlist-card-heart-icon'
@@ -180,7 +168,7 @@ function populateModal(playlist) {
     const modalPlaylistTitle = document.getElementById('modal-playlist-title')
     const modalPlaylistCreator = document.getElementById('modal-creator-name')
 
-    modalPlaylistImg.setAttribute('src', './assets/img/playlist.png')
+    modalPlaylistImg.setAttribute('src', playlist.playlist_art)
     modalPlaylistImg.setAttribute('alt', 'Playlist image')
     modalPlaylistTitle.textContent = playlist.playlist_name
     modalPlaylistCreator.textContent = playlist.playlist_author
@@ -198,7 +186,7 @@ function populateModal(playlist) {
         modalSong.className = 'modal-song'
         modalSongContent.className = 'modal-song-content'
         modalSongRuntime.className = 'album-runtime'
-        modalSongImg.setAttribute('src', './assets/img/song.png')
+        modalSongImg.setAttribute('src', song.song_art)
         modalSongImg.setAttribute('alt', 'Song image')
         modalSongTitle.textContent = song.song_title
         modalSongArtist.textContent = song.song_artist
@@ -215,15 +203,6 @@ function populateModal(playlist) {
     })
 }
 
-// function selectNavigationLink() {
-//     const featureLink = document.getElementById('feature-link')
-//     const homeLink = document.getElementById('home-link')
-
-//     featureLink.addEventListener('click', () => {
-//         console.log(featureLink.classList)
-//     })
-// }
-
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -239,6 +218,7 @@ function loadFeaturePage(playlist) {
 
     const featureHeader = document.createElement('div')
     featureHeader.id = 'feature-playlist-header'
+    featureHeader.style.backgroundImage = 'linear-gradient(to bottom, ' + getRandomColor() + ', var(--ourwhite))'
 
     const featureTitle = document.createElement('div')
     featureTitle.id = 'feature-playlist-title'
@@ -247,7 +227,7 @@ function loadFeaturePage(playlist) {
     const name = document.createElement('h1')
     const author = document.createElement('h2')
 
-    playlistImage.src = './assets/img/song.png'
+    playlistImage.src = playlist.playlist_art
     playlistImage.alt = 'Playlist image'
     name.textContent = playlist.playlist_name
     author.textContent = playlist.playlist_author
@@ -255,19 +235,23 @@ function loadFeaturePage(playlist) {
     featureTitle.appendChild(name)
     featureTitle.appendChild(author)
 
-    featureHeader.appendChild(playlistImage)
-    featureHeader.appendChild(featureTitle)
-    main.appendChild(featureHeader)
-
     const featureSongsContainer = document.createElement('div')
     featureSongsContainer.id = 'feature-songs-container'
+
+    featureHeader.appendChild(playlistImage)
+    featureHeader.appendChild(featureTitle)
+
+    const featureContainer = document.createElement('div')
+    featureContainer.id = 'feature-container'
+
+    featureContainer.appendChild(featureHeader)
 
     songs.forEach(song => {
         const featureSong = document.createElement('div')
         featureSong.className = 'feature-song'
 
         const featureSongImage = document.createElement('img')
-        featureSongImage.src = './assets/img/playlist.png'
+        featureSongImage.src = song.song_art
         featureSongImage.alt = 'Song image'
 
         const featureSongTitle = document.createElement('div')
@@ -288,8 +272,11 @@ function loadFeaturePage(playlist) {
         featureSong.appendChild(featureSongTitle)
         featureSong.appendChild(featureSongRuntime)
 
-        main.appendChild(featureSong)
+        featureSongsContainer.appendChild(featureSong)
     })
+
+    featureContainer.appendChild(featureSongsContainer)
+    main.appendChild(featureContainer)
 }
 
 function clearScreen() {
@@ -297,75 +284,13 @@ function clearScreen() {
     main.innerHTML = ''
 }
 
-featureLink.addEventListener('click', () => {
-    loadFeaturePage({
-    "playlistID": 10,
-    "playlist_name": "Jazz Standards",
-    "playlist_author": "Lisa Nguyen",
-    "playlist_art": "https://example.com/jazz-standards-art.jpg",
-    "songs": [
-      {
-        "songID": 43,
-        "song_title": "My Funny Valentine",
-        "song_artist": "Chet Baker",
-        "song_duration": "2:17"
-      },
-      {
-        "songID": 44,
-        "song_title": "Fly Me to the Moon",
-        "song_artist": "Frank Sinatra",
-        "song_duration": "2:30"
-      },
-      {
-        "songID": 45,
-        "song_title": "Summertime",
-        "song_artist": "Louis Armstrong",
-        "song_duration": "3:23"
-      },
-      {
-        "songID": 46,
-        "song_title": "Moon River",
-        "song_artist": "Henry Mancini",
-        "song_duration": "2:41"
-      },
-      {
-        "songID": 47,
-        "song_title": "The Way You Look Tonight",
-        "song_artist": "Frank Sinatra",
-        "song_duration": "3:22"
-      },
-      {
-        "songID": 48,
-        "song_title": "Night and Day",
-        "song_artist": "Billie Holiday",
-        "song_duration": "3:04"
-      },
-      {
-        "songID": 49,
-        "song_title": "I'll Be Seeing You",
-        "song_artist": "Billie Holiday",
-        "song_duration": "3:27"
-      },
-      {
-        "songID": 50,
-        "song_title": "My Heart Belongs to Daddy",
-        "song_artist": "Marilyn Monroe",
-        "song_duration": "2:17"
-      },
-      {
-        "songID": 51,
-        "song_title": "Feelin' Good",
-        "song_artist": "Nina Simone",
-        "song_duration": "2:53"
-      },
-      {
-        "songID": 52,
-        "song_title": "Sway",
-        "song_artist": "Dean Martin",
-        "song_duration": "2:42"
-      }
-    ]
-  })
-})
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 loadPlaylist()

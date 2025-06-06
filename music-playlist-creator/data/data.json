@@ -3,25 +3,28 @@
     "playlistID": 1,
     "playlist_name": "Summer Vibes",
     "playlist_author": "John Doe",
-    "playlist_art": "https://example.com/summer-vibes-art.jpg",
+    "playlist_art": "https://picsum.photos/id/234/200",
     "songs": [
       {
         "songID": 1,
         "song_title": "Happy",
         "song_artist": "Pharrell Williams",
-        "song_duration": "3:53"
+        "song_duration": "3:53",
+        "song_art": "https://picsum.photos/id/2/200"
       },
       {
         "songID": 2,
         "song_title": "Can't Stop the Feeling!",
         "song_artist": "Justin Timberlake",
-        "song_duration": "3:56"
+        "song_duration": "3:56",
+        "song_art": "https://picsum.photos/id/24/200"
       },
       {
         "songID": 3,
         "song_title": "Uptown Funk",
         "song_artist": "Mark Ronson ft. Bruno Mars",
-        "song_duration": "4:38"
+        "song_duration": "4:38",
+        "song_art": "https://picsum.photos/id/27/200"
       }
     ]
   },
@@ -29,25 +32,28 @@
     "playlistID": 2,
     "playlist_name": "Workout Mix",
     "playlist_author": "Jane Smith",
-    "playlist_art": "https://example.com/workout-mix-art.jpg",
+    "playlist_art": "https://picsum.photos/id/773/200",
     "songs": [
       {
         "songID": 4,
         "song_title": "Eye of the Tiger",
         "song_artist": "Survivor",
-        "song_duration": "3:59"
+        "song_duration": "3:59",
+        "song_art": "https://picsum.photos/id/36/200"
       },
       {
         "songID": 5,
         "song_title": "Lose Yourself",
         "song_artist": "Eminem",
-        "song_duration": "5:26"
+        "song_duration": "5:26",
+        "song_art": "https://picsum.photos/id/37/200"
       },
       {
         "songID": 6,
         "song_title": "We Will Rock You",
         "song_artist": "Queen",
-        "song_duration": "2:28"
+        "song_duration": "2:28",
+        "song_art": "https://picsum.photos/id/38/200"
       }
     ]
   },
@@ -55,25 +61,28 @@
     "playlistID": 3,
     "playlist_name": "Relaxing Music",
     "playlist_author": "Bob Johnson",
-    "playlist_art": "https://example.com/relaxing-music-art.jpg",
+    "playlist_art": "https://picsum.photos/id/96/200",
     "songs": [
       {
         "songID": 7,
         "song_title": "Weightless",
         "song_artist": "Marconi Union",
-        "song_duration": "8:09"
+        "song_duration": "8:09",
+        "song_art": "https://picsum.photos/id/68/200"
       },
       {
         "songID": 8,
         "song_title": "Clair de Lune",
         "song_artist": "Claude Debussy",
-        "song_duration": "5:00"
+        "song_duration": "5:00",
+        "song_art": "https://picsum.photos/id/69/200"
       },
       {
         "songID": 9,
         "song_title": "River Flows in You",
         "song_artist": "Yiruma",
-        "song_duration": "3:38"
+        "song_duration": "3:38",
+        "song_art": "https://picsum.photos/id/30/200"
       }
     ]
   },
@@ -81,25 +90,28 @@
     "playlistID": 4,
     "playlist_name": "Retro Hits",
     "playlist_author": "Alice Brown",
-    "playlist_art": "https://example.com/retro-hits-art.jpg",
+    "playlist_art": "https://picsum.photos/id/574/200",
     "songs": [
       {
         "songID": 10,
         "song_title": "I Want It That Way",
         "song_artist": "Backstreet Boys",
-        "song_duration": "3:33"
+        "song_duration": "3:33",
+        "song_art": "https://picsum.photos/id/47/200"
       },
       {
         "songID": 11,
         "song_title": "Bye Bye Bye",
         "song_artist": "NSYNC",
-        "song_duration": "3:20"
+        "song_duration": "3:20",
+        "song_art": "https://picsum.photos/id/48/200"
       },
       {
         "songID": 12,
         "song_title": "Waterfalls",
         "song_artist": "TLC",
-        "song_duration": "4:39"
+        "song_duration": "4:39",
+        "song_art": "https://picsum.photos/id/49/200"
       }
     ]
   },
@@ -107,31 +119,35 @@
     "playlistID": 5,
     "playlist_name": "Electronic Dance Music",
     "playlist_author": "David Lee",
-    "playlist_art": "https://example.com/edm-art.jpg",
+    "playlist_art": "https://picsum.photos/id/795/200",
     "songs": [
       {
         "songID": 13,
         "song_title": "Tsunami",
         "song_artist": "DVBBS & Borgeous",
-        "song_duration": "3:57"
+        "song_duration": "3:57",
+        "song_art": "https://picsum.photos/id/50/200"
       },
       {
         "songID": 14,
         "song_title": "Sandstorm",
         "song_artist": "Darude",
-        "song_duration": "3:45"
+        "song_duration": "3:45",
+        "song_art": "https://picsum.photos/id/52/200"
       },
       {
         "songID": 15,
         "song_title": "One",
         "song_artist": "Veracocha",
-        "song_duration": "3:44"
+        "song_duration": "3:44",
+        "song_art": "https://picsum.photos/id/53/200"
       },
       {
         "songID": 16,
         "song_title": "Insomnia",
         "song_artist": "Faithless",
-        "song_duration": "3:34"
+        "song_duration": "3:34",
+        "song_art": "https://picsum.photos/id/54/200"
       }
     ]
   },
@@ -139,43 +155,49 @@
     "playlistID": 6,
     "playlist_name": "Hip-Hop Favorites",
     "playlist_author": "Emily Chen",
-    "playlist_art": "https://example.com/hip-hop-favorites-art.jpg",
+    "playlist_art": "https://picsum.photos/id/45/200",
     "songs": [
       {
         "songID": 17,
         "song_title": "Lose Yourself",
         "song_artist": "Eminem",
-        "song_duration": "5:26"
+        "song_duration": "5:26",
+        "song_art": "https://picsum.photos/id/688/200"
       },
       {
         "songID": 18,
         "song_title": "Juicy",
         "song_artist": "The Notorious B.I.G.",
-        "song_duration": "5:12"
+        "song_duration": "5:12",
+        "song_art": "https://picsum.photos/id/788/200"
       },
       {
         "songID": 19,
         "song_title": "Straight Outta Compton",
         "song_artist": "N.W.A",
-        "song_duration": "4:08"
+        "song_duration": "4:08",
+        "song_art": "https://picsum.photos/id/789/200"
       },
       {
         "songID": 20,
         "song_title": "99 Problems",
         "song_artist": "Jay-Z",
-        "song_duration": "3:54"
+        "song_duration": "3:54",
+        "song_art": "https://picsum.photos/id/790/200"
       },
       {
         "songID": 21,
         "song_title": "Gold Digger",
         "song_artist": "Kanye West ft. Jamie Foxx",
-        "song_duration": "3:28"
+        "song_duration": "3:28",
+        "song_art": "https://picsum.photos/id/791/200"
       },
       {
         "songID": 22,
         "song_title": "Crazy in Love",
         "song_artist": "Beyoncé ft. Jay-Z",
-        "song_duration": "3:56"
+        "song_duration": "3:56",
+        "song_art": "https://picsum.photos/id/792/200"
       }
     ]
   },
@@ -183,67 +205,77 @@
     "playlistID": 7,
     "playlist_name": "Country Roads",
     "playlist_author": "Sarah Taylor",
-    "playlist_art": "https://example.com/country-roads-art.jpg",
+    "playlist_art": "https://picsum.photos/id/223/200",
     "songs": [
       {
         "songID": 23,
         "song_title": "Friends in Low Places",
         "song_artist": "Garth Brooks",
-        "song_duration": "4:18"
+        "song_duration": "4:18",
+        "song_art": "https://picsum.photos/id/232/200"
       },
       {
         "songID": 24,
         "song_title": "Forever and Ever, Amen",
         "song_artist": "Randy Travis",
-        "song_duration": "2:33"
+        "song_duration": "2:33",
+        "song_art": "https://picsum.photos/id/199/200"
       },
       {
         "songID": 25,
         "song_title": "I Walk the Line",
         "song_artist": "Johnny Cash",
-        "song_duration": "2:43"
+        "song_duration": "2:43",
+        "song_art": "https://picsum.photos/id/687/200"
       },
       {
         "songID": 26,
         "song_title": "Jolene",
         "song_artist": "Dolly Parton",
-        "song_duration": "2:41"
+        "song_duration": "2:41",
+        "song_art": "https://picsum.photos/id/856/200"
       },
       {
         "songID": 27,
         "song_title": "Country Roads",
         "song_artist": "John Denver",
-        "song_duration": "3:09"
+        "song_duration": "3:09",
+        "song_art": "https://picsum.photos/id/650/200"
       },
       {
         "songID": 28,
         "song_title": "Love Story",
         "song_artist": "Taylor Swift",
-        "song_duration": "3:55"
+        "song_duration": "3:55",
+        "song_art": "https://picsum.photos/id/95/200"
       },
       {
         "songID": 29,
         "song_title": "You Belong With Me",
         "song_artist": "Taylor Swift",
-        "song_duration": "3:51"
+        "song_duration": "3:51",
+        "song_art": "https://picsum.photos/id/775/200"
       },
       {
         "songID": 30,
         "song_title": "Need You Now",
         "song_artist": "Lady Antebellum",
-        "song_duration": "3:52"
+        "song_duration": "3:52",
+        "song_art": "https://picsum.photos/id/111/200"
       },
       {
         "songID": 31,
         "song_title": "God Gave Me You",
         "song_artist": "Blake Shelton",
-        "song_duration": "3:50"
+        "song_duration": "3:50",
+        "song_art": "https://picsum.photos/id/457/200"
       },
       {
         "songID": 32,
         "song_title": "The House That Built Me",
         "song_artist": "Miranda Lambert",
-        "song_duration": "3:47"
+        "song_duration": "3:47",
+        "song_art": "https://picsum.photos/id/54/200"
       }
     ]
   },
@@ -251,31 +283,35 @@
     "playlistID": 8,
     "playlist_name": "Pop Anthems",
     "playlist_author": "Michael Kim",
-    "playlist_art": "https://example.com/pop-anthems-art.jpg",
+    "playlist_art": "https://picsum.photos/id/342/200",
     "songs": [
       {
         "songID": 33,
         "song_title": "Uptown Funk",
         "song_artist": "Mark Ronson ft. Bruno Mars",
-        "song_duration": "4:38"
+        "song_duration": "4:38",
+        "song_art": "https://picsum.photos/id/667/200"
       },
       {
         "songID": 34,
         "song_title": "Can't Stop the Feeling!",
         "song_artist": "Justin Timberlake",
-        "song_duration": "3:56"
+        "song_duration": "3:56",
+        "song_art": "https://picsum.photos/id/676/200"
       },
       {
         "songID": 35,
         "song_title": "We Found Love",
         "song_artist": "Rihanna ft. Calvin Harris",
-        "song_duration": "3:35"
+        "song_duration": "3:35",
+        "song_art": "https://picsum.photos/id/887/200"
       },
       {
         "songID": 36,
         "song_title": "Happy",
         "song_artist": "Pharrell Williams",
-        "song_duration": "3:53"
+        "song_duration": "3:53",
+        "song_art": "https://picsum.photos/id/907/200"
       }
     ]
   },
@@ -283,43 +319,49 @@
     "playlistID": 9,
     "playlist_name": "Rock Ballads",
     "playlist_author": "Kevin White",
-    "playlist_art": "https://example.com/rock-ballads-art.jpg",
+    "playlist_art": "https://picsum.photos/id/253/200",
     "songs": [
       {
         "songID": 37,
         "song_title": "Stairway to Heaven",
         "song_artist": "Led Zeppelin",
-        "song_duration": "8:03"
+        "song_duration": "8:03",
+        "song_art": "https://picsum.photos/id/2/200"
       },
       {
         "songID": 38,
         "song_title": "Hotel California",
         "song_artist": "Eagles",
-        "song_duration": "6:30"
+        "song_duration": "6:30",
+        "song_art": "https://picsum.photos/id/46/200"
       },
       {
         "songID": 39,
         "song_title": "Blackbird",
         "song_artist": "The Beatles",
-        "song_duration": "2:18"
+        "song_duration": "2:18",
+        "song_art": "https://picsum.photos/id/79/200"
       },
       {
         "songID": 40,
         "song_title": "Free Bird",
         "song_artist": "Lynyrd Skynyrd",
-        "song_duration": "9:08"
+        "song_duration": "9:08",
+        "song_art": "https://picsum.photos/id/457/200"
       },
       {
         "songID": 41,
         "song_title": "Sweet Child O' Mine",
         "song_artist": "Guns N' Roses",
-        "song_duration": "5:56"
+        "song_duration": "5:56",
+        "song_art": "https://picsum.photos/id/99/200"
       },
       {
         "songID": 42,
         "song_title": "November Rain",
         "song_artist": "Guns N' Roses",
-        "song_duration": "8:57"
+        "song_duration": "8:57",
+        "song_art": "https://picsum.photos/id/567/200"
       }
     ]
   },
@@ -327,67 +369,77 @@
     "playlistID": 10,
     "playlist_name": "Jazz Standards",
     "playlist_author": "Lisa Nguyen",
-    "playlist_art": "https://example.com/jazz-standards-art.jpg",
+    "playlist_art": "https://picsum.photos/id/34/200",
     "songs": [
       {
         "songID": 43,
         "song_title": "My Funny Valentine",
         "song_artist": "Chet Baker",
-        "song_duration": "2:17"
+        "song_duration": "2:17",
+        "song_art": "https://picsum.photos/id/235/200"
       },
       {
         "songID": 44,
         "song_title": "Fly Me to the Moon",
         "song_artist": "Frank Sinatra",
-        "song_duration": "2:30"
+        "song_duration": "2:30",
+        "song_art": "https://picsum.photos/id/325/200"
       },
       {
         "songID": 45,
         "song_title": "Summertime",
         "song_artist": "Louis Armstrong",
-        "song_duration": "3:23"
+        "song_duration": "3:23",
+        "song_art": "https://picsum.photos/id/23/200"
       },
       {
         "songID": 46,
         "song_title": "Moon River",
         "song_artist": "Henry Mancini",
-        "song_duration": "2:41"
+        "song_duration": "2:41",
+        "song_art": "https://picsum.photos/id/236/200"
       },
       {
         "songID": 47,
         "song_title": "The Way You Look Tonight",
         "song_artist": "Frank Sinatra",
-        "song_duration": "3:22"
+        "song_duration": "3:22",
+        "song_art": "https://picsum.photos/id/695/200"
       },
       {
         "songID": 48,
         "song_title": "Night and Day",
         "song_artist": "Billie Holiday",
-        "song_duration": "3:04"
+        "song_duration": "3:04",
+        "song_art": "https://picsum.photos/id/898/200"
       },
       {
         "songID": 49,
         "song_title": "I'll Be Seeing You",
         "song_artist": "Billie Holiday",
-        "song_duration": "3:27"
+        "song_duration": "3:27",
+        "song_art": "https://picsum.photos/id/685/200"
       },
       {
         "songID": 50,
         "song_title": "My Heart Belongs to Daddy",
         "song_artist": "Marilyn Monroe",
-        "song_duration": "2:17"
+        "song_duration": "2:17",
+        "song_art": "https://picsum.photos/id/235/200"
       },
       {
         "songID": 51,
         "song_title": "Feelin' Good",
         "song_artist": "Nina Simone",
-        "song_duration": "2:53"
+        "song_duration": "2:53",
+        "song_art": "https://picsum.photos/id/790/200"
       },
       {
         "songID": 52,
         "song_title": "Sway",
         "song_artist": "Dean Martin",
-        "song_duration": "2:42"
+        "song_duration": "2:42",
+        "song_art": "https://picsum.photos/id/23/200"
       }
     ]
   }

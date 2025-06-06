@@ -2,10 +2,13 @@ const main = document.querySelector('main')
 
 const modal = document.getElementsByClassName('modal-content')
 const modalOverlay = document.getElementsByClassName('modal-overlay')[0]
+const playlistModalOverlay = document.getElementById('add-playlist-form-modal')
 const shuffleBtn = document.getElementById('shuffle-btn')
 
 const homeLink = document.getElementById('home-link')
 const featureLink = document.getElementById('feature-link')
+const addBtn = document.getElementById('add-btn')
+const searchBtn = document.getElementById('search-btn')
 
 const playlistCards = document.createElement('div')
 playlistCards.id = 'playlist-cards'
@@ -21,7 +24,11 @@ function loadPlaylist() {
         })
         .then(playlists => {
 
-            const loadPlaylistScreen = () => {
+            const addPlaylist = () => {
+                
+            }
+
+            const loadPlaylistScreen = (playlists) => {
                 clearScreen()
 
                 playlists.forEach(playlist => {
@@ -52,6 +59,12 @@ function loadPlaylist() {
                     }
                 })
 
+                playlistModalOverlay.addEventListener('click', (event) => {
+                    if (event.target.className.trim() === 'modal-overlay') {   
+                        closeAddPlaylistForm()
+                    }
+                })
+
                 shuffleBtn.addEventListener('click', () => {
                     shuffleSongs(playlists[selectedPlaylist.id - 1])
                     closeModal()
@@ -60,7 +73,7 @@ function loadPlaylist() {
             }
 
             homeLink.addEventListener('click', () => {
-                loadPlaylistScreen()
+                loadPlaylistScreen(playlists)
                 homeLink.classList.add('active')
                 featureLink.classList.remove('active')
             })
@@ -71,7 +84,23 @@ function loadPlaylist() {
                 featureLink.classList.add('active')
             })
 
-            loadPlaylistScreen()
+            addBtn.addEventListener('click', () => {
+                openAddPlaylistForm()
+            })
+
+            searchBtn.addEventListener('click', () => {
+                const searchBar = document.getElementById('search')
+                searchBar.classList.remove('hidden')
+
+                searchBar.addEventListener('input', event => {
+                    let filteredPlaylists = playlists.filter((playlist) => 
+                        playlist.playlist_name.toLowerCase().startsWith(searchBar.value) ||
+                        playlist.playlist_author.toLowerCase().startsWith(searchBar.value))
+                    loadPlaylistScreen(filteredPlaylists)
+                })
+            })
+
+            loadPlaylistScreen(playlists)
             
         })
         .catch(error => {
@@ -132,6 +161,7 @@ function createPlaylistElement(playlist) {
     playlistCard.className ='playlist-card-container'
     playlistCardImg.setAttribute('src', playlist.playlist_art)
     playlistCardImg.setAttribute('alt', 'playlist image')
+    playlistCardImg.onerror = './assets/img/playlist.png'
     playlistCardInformation.className = 'playlist-card-information'
     playlistCardHeart.className = 'playlist-card-heart-icon'
     playlistCardName.textContent = playlist.playlist_name
@@ -170,6 +200,7 @@ function populateModal(playlist) {
 
     modalPlaylistImg.setAttribute('src', playlist.playlist_art)
     modalPlaylistImg.setAttribute('alt', 'Playlist image')
+    modalPlaylistImg.onerror = './assets/img/playlist.png'
     modalPlaylistTitle.textContent = playlist.playlist_name
     modalPlaylistCreator.textContent = playlist.playlist_author
 
@@ -188,6 +219,7 @@ function populateModal(playlist) {
         modalSongRuntime.className = 'album-runtime'
         modalSongImg.setAttribute('src', song.song_art)
         modalSongImg.setAttribute('alt', 'Song image')
+        modalSongImg.onerror = './assets/img/song.png'
         modalSongTitle.textContent = song.song_title
         modalSongArtist.textContent = song.song_artist
         modalSongRuntime.textContent = song.song_duration
@@ -229,6 +261,7 @@ function loadFeaturePage(playlist) {
 
     playlistImage.src = playlist.playlist_art
     playlistImage.alt = 'Playlist image'
+    playlistImage.onerror = './assets/img/playlist.png'
     name.textContent = playlist.playlist_name
     author.textContent = playlist.playlist_author
 
@@ -252,6 +285,7 @@ function loadFeaturePage(playlist) {
 
         const featureSongImage = document.createElement('img')
         featureSongImage.src = song.song_art
+        featureSong.onerror = './assets/img/song.png'
         featureSongImage.alt = 'Song image'
 
         const featureSongTitle = document.createElement('div')
@@ -291,6 +325,29 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+}
+
+function openAddPlaylistForm() {
+    const addPlaylistFormModal = document.getElementById('add-playlist-form-modal')
+    addPlaylistFormModal.classList.remove('hidden')
+}
+
+function closeAddPlaylistForm() {
+    const addPlaylistFormModal = document.getElementById('add-playlist-form-modal')
+    addPlaylistFormModal.classList.add('hidden')
+}
+
+function submitPlaylist() {
+    const submitPlaylistBtn = document.getElementById('submit-playlist')
+    submitPlaylistBtn.addEventListener('click', event => {
+        const playlistSubmitForm = document.getElementById('')
+    })
+}
+
+function addPlaylist(playlists) {
+    playlists.push({
+
+    })
 }
 
 loadPlaylist()

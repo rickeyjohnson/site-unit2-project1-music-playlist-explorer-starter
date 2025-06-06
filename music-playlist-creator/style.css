@@ -71,6 +71,7 @@ header {
 
 main {
     background-color: var(--ourwhite);
+    border: 3px solid g;
 }
 
 footer {
@@ -308,4 +309,14 @@ footer {
 
 .feature-song-title p {
     margin: 0;
+}
+
+#add-playlist-form {
+    border: 3px solid red;
+    width: 40vw;
+    height: 50vh;
+}
+
+form#search-bar {
+    float: left;
 }

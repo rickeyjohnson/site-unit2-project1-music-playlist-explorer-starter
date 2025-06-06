@@ -15,6 +15,12 @@
         <div id="links">
             <h3><a id="feature-link" class="link">Feature</a></h3>
             <h3><a id="home-link" class="active link">Home</a></h3>
+            <h3><a id="add-btn" class="link">+</a></h3>
+
+            <!-- Search -->
+            <input id="search" class="hidden" type="text" placeholder="search" name="search">
+
+            <h3><a id="search-btn" class="link search"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></a></h3>
         </div>
     </header>
 
@@ -23,7 +29,7 @@
         </section> -->
     </main>
 
-    <div class="modal-overlay hidden">
+    <div id="playlist-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <section class="modal-header">
                 <img id="modal-playlist-img" src="./assets/img/playlist.png" alt="playlist image">
@@ -34,6 +40,33 @@
                 <button id="shuffle-btn">Shuffle</button>
             </section>
             <section class="modal-songs-container"></section>
+        </div>
+    </div>
+
+    <div id="add-playlist-form-modal" class="modal-overlay hidden">
+        <div id="add-playlist-form" class="add-playlist-form">
+            <form >
+                <label for="playlist-name">Playlist Name</label>
+                <input type="text" id="playlist-name" name="playlist-name" required>
+
+                <label for="author-name">Author</label>
+                <input type="text" id="author-name" name="author-name" required>
+
+                <label for="playlist-cover">Cover?</label>
+                <input type="file" id="playlist-cover" name="playlist-cover" accept="image/*">
+            </form>
+            <button id="add-song">+</button>
+            <form id="songs-upload-form" class="hidden">
+                <label for="song-name">Song</label>
+                <input type="text" id="song-name" name="song-name" required>
+
+                <label for="song-artist">Artist</label>
+                <input type="text" id="song-artist" name="song-artist" required>
+
+                <button id="submit-song" type="submit"></button>
+            </form>
+
+            <button id="submit-playlist">Add playlist</button>
         </div>
     </div>
 

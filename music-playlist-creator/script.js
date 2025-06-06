@@ -9,6 +9,9 @@ const homeLink = document.getElementById('home-link')
 const featureLink = document.getElementById('feature-link')
 const addBtn = document.getElementById('add-btn')
 const searchBtn = document.getElementById('search-btn')
+const submitPlaylistBtn = document.getElementById('submit-playlist-btn')
+const addSongBtn = document.getElementById('add-song')
+const submitSongBtn = document.getElementById('submit-song')
 
 const playlistCards = document.createElement('div')
 playlistCards.id = 'playlist-cards'
@@ -24,9 +27,7 @@ function loadPlaylist() {
         })
         .then(playlists => {
 
-            const addPlaylist = () => {
-                
-            }
+            let newSongs = []
 
             const loadPlaylistScreen = (playlists) => {
                 clearScreen()
@@ -72,6 +73,8 @@ function loadPlaylist() {
                 })
             }
 
+            loadPlaylistScreen(playlists)
+
             homeLink.addEventListener('click', () => {
                 loadPlaylistScreen(playlists)
                 homeLink.classList.add('active')
@@ -88,6 +91,8 @@ function loadPlaylist() {
                 openAddPlaylistForm()
             })
 
+            submitPlaylistBtn
+
             searchBtn.addEventListener('click', () => {
                 const searchBar = document.getElementById('search')
                 searchBar.classList.remove('hidden')
@@ -100,7 +105,43 @@ function loadPlaylist() {
                 })
             })
 
-            loadPlaylistScreen(playlists)
+            document.addEventListener('click', event => {
+                const searchBar = document.getElementById('search')
+                const target = event.target.id
+                if (target !== "search-btn" && 
+                    target !== "search" && 
+                    target !== "search-btn-a" && 
+                    target !== "search-btn-svg" && 
+                    target !== "search-btn-path") {
+                    searchBar.classList.add('hidden')
+                }
+            })
+
+            submitPlaylistBtn.addEventListener('click', () => {
+                console.log('click!')
+
+                // add playlist
+                const currentPlaylist = submitPlaylist(playlists)
+
+                // add songs
+                currentPlaylist.songs.push(...newSongs)
+                newSongs = []
+
+                loadPlaylistScreen(playlists)
+
+            })
+
+            // +
+            addSongBtn.addEventListener('click', () => {
+                console.log('click')
+                const songUploadForm = document.getElementById('songs-upload-form')
+                songUploadForm.classList.remove("hidden")
+            })
+
+            submitSongBtn.addEventListener('click', () => {
+                addSong(newSongs)
+                closeSongForm()
+            })
             
         })
         .catch(error => {
@@ -337,17 +378,54 @@ function closeAddPlaylistForm() {
     addPlaylistFormModal.classList.add('hidden')
 }
 
-function submitPlaylist() {
-    const submitPlaylistBtn = document.getElementById('submit-playlist')
-    submitPlaylistBtn.addEventListener('click', event => {
-        const playlistSubmitForm = document.getElementById('')
-    })
+function submitPlaylist(playlists) {
+    const playlistNameInput = document.getElementById('playlist-name')
+    const playlistAuthorInput = document.getElementById('author-name')
+    const playlistCoverInput = document.getElementById('playlist-cover')
+
+    playlists.push(
+        {
+            "playlistID": playlists.length + 1,
+            "playlist_name": playlistNameInput.value ? playlistNameInput.value : "Playlist",
+            "playlist_author": playlistAuthorInput.value ? playlistAuthorInput.value : "Some dude who didn't fill out the form",
+            "playlist_art": playlistCoverInput.value ? playlistCoverInput.value : "./assets/img/playlist.png",
+            "songs" : []
+        }
+    )
+
+    closeSongForm()
+    closeAddPlaylistForm()
+
+    playlistNameInput.value = ''
+    playlistAuthorInput.value = ''
+    playlistCoverInput.value = ''
+
+    return playlists[playlists.length - 1]
 }
 
-function addPlaylist(playlists) {
-    playlists.push({
+function addSong(newSongs) {
+    const songNameInput = document.getElementById('song-name').value
+    const songAuthorInput = document.getElementById('song-artist').value
 
-    })
+    newSongs.push(
+        {
+            "song_title": songNameInput,
+            "song_artist": songAuthorInput,
+            "song_duration": '0:00',
+            "song_art": "./assets/img/song.png"
+        }
+    )
+}
+
+function closeSongForm() {
+    const songUploadForm = document.getElementById('songs-upload-form')
+    songUploadForm.classList.add("hidden")
+    
+    let songNameInput = document.getElementById('song-name')
+    let songAuthorInput = document.getElementById('song-artist')
+
+    songNameInput.value = ''
+    songAuthorInput.value = ''
 }
 
 loadPlaylist()

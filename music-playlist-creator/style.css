@@ -42,6 +42,7 @@ header {
     justify-content: flex-end;
     gap: 50px;
     align-items: center;
+    position: relative;
 }
 
 #links a {
@@ -315,8 +316,11 @@ footer {
     border: 3px solid red;
     width: 40vw;
     height: 50vh;
+    background-color: #fff;
 }
 
-form#search-bar {
-    float: left;
-}
+/* h3 #add-btn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+} */

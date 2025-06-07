@@ -129,11 +129,14 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   - [ ] Selecting a sort option should result in a reordering based on the selected sort while maintaining a grid view.
 
 ### Walkthrough Video
-
-<a href="https://www.loom.com/share/631260c60dcf46bdb9e3810e0da8dee6?sid=76c2d278-40db-4a35-81c7-e7e96b68fc01">
-   <p>Project video title</p>
-   <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/631260c60dcf46bdb9e3810e0da8dee6?sid=76c2d278-40db-4a35-81c7-e7e96b68fc01-with-play.gif">
-</a>
+<div>
+    <a href="https://www.loom.com/share/631260c60dcf46bdb9e3810e0da8dee6">
+      <p>Music Playlist Explorer - 6 June 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/631260c60dcf46bdb9e3810e0da8dee6">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/631260c60dcf46bdb9e3810e0da8dee6-1a16301da732fa7c-full-play.gif">
+    </a>
+</div>
 
 ### Reflection
 

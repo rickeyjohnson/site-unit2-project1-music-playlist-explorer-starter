@@ -104,21 +104,21 @@ function loadPlaylist() {
                 const searchBar = document.getElementById('search')
                 searchBar.classList.remove('hidden')
 
-                searchBar.addEventListener('input', event => {
-                    let filteredPlaylists = playlists.filter((playlist) => 
-                        playlist.playlist_name.toLowerCase().startsWith(searchBar.value) ||
-                        playlist.playlist_author.toLowerCase().startsWith(searchBar.value))
-                    loadPlaylistScreen(filteredPlaylists)
-                })
+                // searchBar.addEventListener('input', event => {
+                //     let filteredPlaylists = playlists.filter((playlist) => 
+                //         playlist.playlist_name.toLowerCase().startsWith(searchBar.value) ||
+                //         playlist.playlist_author.toLowerCase().startsWith(searchBar.value))
+                //     loadPlaylistScreen(filteredPlaylists)
+                // })
 
                 // if i want search "button"
-                // let filteredPlaylists = playlists.filter((playlist) => 
-                //     playlist.playlist_name.toLowerCase().startsWith(searchBar.value) ||
-                //     playlist.playlist_author.toLowerCase().startsWith(searchBar.value))
+                let filteredPlaylists = currentPlaylists.filter((playlist) => 
+                    playlist.playlist_name.toLowerCase().startsWith(searchBar.value) ||
+                    playlist.playlist_author.toLowerCase().startsWith(searchBar.value))
                 
-                // if (searchBar.value) {
-                //     loadPlaylistScreen(filteredPlaylists)
-                // }
+                if (searchBar.value) {
+                    loadPlaylistScreen(filteredPlaylists)
+                }
             })
 
             document.addEventListener('click', event => {

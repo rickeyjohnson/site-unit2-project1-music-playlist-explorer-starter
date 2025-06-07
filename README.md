@@ -142,19 +142,15 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete? 
 
-Yes and no, just enough for basics, but not enough for the streatch features for example inputs and forms.
+Yes I do think the lab projects we had, especially the CSS and JavaScript Tomato Timer and book adder, did prepare us to complete the assignment, however as the labs got more complicated the amount of class time given was insufficient. It's bittersweet because it allowed more time for our project, which I need all the time (i.e. the commit history). Stretch features were the most unprepared, more specifically the fetching of json data. The labs told us to skip those for now which put us at a disadvantage since it was used in the project.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc. 
 
-I would've made it more prettier and interactive. I would've definetly do more stretch features.  
+First, I would've made my code a lot more organized and styled. Variables were being passed in functions left and right, naming conventions might've not been up to code, divs out the wazoo, and functions nested within functions. Secondly, I would've completed all the stretch features. I believe my attention to the details and the css portion of the webpage made me focus more on look than usabiliy which made my goals for completing all the features unattainable. Lastly, would've made it more professional. It was very much a prototype looking website, but in the future it would be deployment ready.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-My demo when well, I talked, it felt natural and all my MVP features were cool.
-
-### Open-source libraries used
-
-- Add any links to open-source libraries used in your project.
+My project demo, I believe, went very well. I went up there, spoke about myself and my project, display all the MVP features that I had completed as well as some neat CSS tricks I learned along the way. Some things that didn't go as planned was showcasing strech features, which broke my code seconds before demos. Some things my peers done that I would've love to include was animations and user interactablity. Some of peers had professional, deployment ready websites that felt really fun to look at and use. I would've love to include certain hightlighting, animations, and interactive css that some chose to use. 
 
 ### Shout out
 

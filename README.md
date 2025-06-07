@@ -136,17 +136,17 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 ### Reflection
 
-* Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
+* Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete? 
 
-Add your response here
+Yes and no, just enough for basics, but not enough for the streatch features for example inputs and forms.
 
-* If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
-Add your response here
+* If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc. 
+
+I would've made it more prettier and interactive. I would've definetly do more stretch features.  
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+My demo when well, I talked, it felt natural and all my MVP features were cool.
 
 ### Open-source libraries used
 
@@ -154,4 +154,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+BOB

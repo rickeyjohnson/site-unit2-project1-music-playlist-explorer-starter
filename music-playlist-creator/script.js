@@ -28,6 +28,7 @@ function loadPlaylist() {
         .then(playlists => {
 
             let newSongs = []
+            let currentPlaylists = [...playlists]
 
             const loadPlaylistScreen = (playlists) => {
                 clearScreen()
@@ -45,10 +46,16 @@ function loadPlaylist() {
                     card.addEventListener('click', (event) => {
                         selectedPlaylist = card;
 
+                        console.log(selectedPlaylist)
+
                         if (event.target.className.includes('playlist-card-heart-icon')) {
                             increaseLikeCount(selectedPlaylist)
+                        } else if (event.target.id === "delete-btn" || event.target.id === "delete-btn-content") {
+                            // delete from playlists
+                            currentPlaylists = deletePlaylist(currentPlaylists, playlists[selectedPlaylist.id - 1])
                         } else {
-                            openModal(playlists[selectedPlaylist.id - 1])
+                            targetId = selectedPlaylist.id
+                            openModal(currentPlaylists.find(p => String(p.playlistID) === String(targetId)))
                         }
                     })
 
@@ -67,22 +74,22 @@ function loadPlaylist() {
                 })
 
                 shuffleBtn.addEventListener('click', () => {
-                    shuffleSongs(playlists[selectedPlaylist.id - 1])
+                    shuffleSongs(currentPlaylists[selectedPlaylist.id - 1])
                     closeModal()
-                    openModal(playlists[selectedPlaylist.id - 1])
+                    openModal(currentPlaylists[selectedPlaylist.id - 1])
                 })
             }
 
-            loadPlaylistScreen(playlists)
+            loadPlaylistScreen(currentPlaylists)
 
             homeLink.addEventListener('click', () => {
-                loadPlaylistScreen(playlists)
+                loadPlaylistScreen(currentPlaylists)
                 homeLink.classList.add('active')
                 featureLink.classList.remove('active')
             })
 
             featureLink.addEventListener('click', () => {
-                loadFeaturePage(playlists[Math.floor(Math.random() * playlists.length)])
+                loadFeaturePage(currentPlaylists[Math.floor(Math.random() * currentPlaylists.length)])
                 homeLink.classList.remove('active')
                 featureLink.classList.add('active')
             })
@@ -103,6 +110,15 @@ function loadPlaylist() {
                         playlist.playlist_author.toLowerCase().startsWith(searchBar.value))
                     loadPlaylistScreen(filteredPlaylists)
                 })
+
+                // if i want search "button"
+                // let filteredPlaylists = playlists.filter((playlist) => 
+                //     playlist.playlist_name.toLowerCase().startsWith(searchBar.value) ||
+                //     playlist.playlist_author.toLowerCase().startsWith(searchBar.value))
+                
+                // if (searchBar.value) {
+                //     loadPlaylistScreen(filteredPlaylists)
+                // }
             })
 
             document.addEventListener('click', event => {
@@ -118,22 +134,19 @@ function loadPlaylist() {
             })
 
             submitPlaylistBtn.addEventListener('click', () => {
-                console.log('click!')
-
                 // add playlist
-                const currentPlaylist = submitPlaylist(playlists)
+                const currentPlaylist = submitPlaylist(currentPlaylists)
 
                 // add songs
                 currentPlaylist.songs.push(...newSongs)
                 newSongs = []
 
-                loadPlaylistScreen(playlists)
+                loadPlaylistScreen(currentPlaylists)
 
             })
 
             // +
             addSongBtn.addEventListener('click', () => {
-                console.log('click')
                 const songUploadForm = document.getElementById('songs-upload-form')
                 songUploadForm.classList.remove("hidden")
             })
@@ -142,6 +155,11 @@ function loadPlaylist() {
                 addSong(newSongs)
                 closeSongForm()
             })
+
+            // const deleteBtn = document.getElementById('delete-btn')
+            // deleteBtn.addEventListener('click', event => {
+
+            // })
             
         })
         .catch(error => {
@@ -175,7 +193,6 @@ function increaseLikeCount(card) {
         heartIcon.className += ' liked'
     }
 
-    console.log(heartIcon.className)
     likeCount.textContent = Number(likeCount.textContent) + amount
 }
 
@@ -215,6 +232,15 @@ function createPlaylistElement(playlist) {
     playlistCardInformation.appendChild(playlistCardHeart)
     playlistCardInformation.appendChild(playlistCardLikes)
 
+    /* delete element */
+    const deleteBtn = document.createElement('div')
+    const deleteBtnContent = document.createElement('div')
+    deleteBtn.id = 'delete-btn'
+    deleteBtnContent.id = 'delete-btn-content'
+    deleteBtnContent.textContent = 'x'
+    deleteBtn.appendChild(deleteBtnContent)
+
+    playlistCard.appendChild(deleteBtn)
     playlistCard.appendChild(playlistCardImg)
     playlistCard.appendChild(playlistCardInformation)
     playlistCard.id = playlist.playlistID
@@ -426,6 +452,15 @@ function closeSongForm() {
 
     songNameInput.value = ''
     songAuthorInput.value = ''
+}
+
+function deletePlaylist(playlists, currentPlaylist) {
+    playlists = playlists.filter(playlist => playlist.playlistID !== currentPlaylist.playlistID)
+
+    const playlistContiner = document.getElementById(currentPlaylist.playlistID)
+    playlistContiner.style.display = "none"
+
+    return playlists
 }
 
 loadPlaylist()

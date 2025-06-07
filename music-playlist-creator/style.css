@@ -104,7 +104,9 @@ footer {
 
 .playlist-card-container {
     border: 2px solid rgb(128, 128, 128);
-    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    position: relative;
 }
 
 .playlist-card-information {
@@ -324,3 +326,28 @@ footer {
     bottom: 0;
     right: 0;
 } */
+
+/* delete button */
+#delete-btn {
+    display: none;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    margin: 0;
+    padding: 4px;
+    background-color: rgb(230, 43, 43);
+    color: white;
+    z-index: 10;
+    border-radius: 100%;
+}
+
+#delete-btn-content {
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.playlist-card-container:hover > #delete-btn {
+    display: block;
+}
